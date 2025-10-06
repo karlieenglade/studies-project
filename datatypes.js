@@ -39,20 +39,115 @@ b = 50;
 console.log(b); // 50
 console.log(a); // 20
 
+//strings have a length property 
+let color = "green";
+console.log(color.length); // 5
+//can access individual characters in a string with bracket notaion
+console.log(color[0]); // "g"
+//can split a string into an array
+console.log (color.split()); // ["green"]
+console.log (color.split("")); // ["g","r","e","e","n"]
+
+//can concatenate strings 
+let beginning = "My favorite color is ";
+let sentence = beginning + color;
+console.log(sentence); // "My favorite color is green"
+
+//booleans are true or false values based on logic and are used in conditional statements
+console.log((10 < 20)); // true
+console.log(5 > 6); // false
+console.log("hi" === "hello");// false
+
+//a variable is "undefined" if it has no value
+let chair; // <-- has no value
+console.log(chair); // undefined
+
+///null means "nothing" but its data type is an object
+console.log(typeof null); // "object"
+
 
 
 // complex data types
     // collect other values
+//arrays: ordered lists, can hold any data types
 let array = [1, "hello", true, [3, 5], {name: "Bob"}];
+//arrays have a length property
+console.log(array.length); // 5
+//adding to array 
+    //to end
+array.push("light"); 
+console.log(array); // [1, "hello", true, [3, 5], {name: "Bob"}, "light"]
+    //to end
+array[array.length] = "haha"; 
+console.log(array); // [1, "hello", true, [3, 5], {name: "Bob"}, "light", "haha"]
+    //to beginning
+array.unshift("marker"); 
+console.log(array); // ["marker", 1, "hello", true, [3, 5], {name: "Bob"}, "light", "haha"]
+//removing from array
+    //last
+array.pop();
+console.log(array); // ["marker", 1, "hello", true, [3, 5], {name: "Bob"}, "light"]
+    //first 
+array.shift(); 
+console.log(array); // [1, "hello", true, [3, 5], {name: "Bob"}, "light"]
+//replacing array values
+array[0] = 5;
+console.log(array); //[5, "hello", true, [3, 5], {name: "Bob"}, "light"]
+//accessing array values 
+console.log(array[1]); // "hello"
+console.log(array(array.length-1)); // "light"  
+    //access array value in array 
+console.log(array[3][1]); // 5
+    //access object value in array
+console.log(array[4].name);// "Bob"
+
+
+//objects: unordered collections of key-value pairs
+    //keys are strings or numbers
+    //values can be any data type
 let object = {name: "Mark", age: 93, mood: "excited"};
+//objects do not have a length property
+//adding to object
+    //dot notation
+object.color = "orange";
+console.log(object); // {name: "Mark", age: 93, mood: "excited", color: "orange"}
+    //bracket notation
+object["big"] = true;
+console.log(object); // {name: "Mark", age: 93, mood: "excited", color: "orange", big: true}
+//changing object values
+object.color = "purple";
+console.log(object); // {name: "Mark", age: 93, mood: "excited", color: "purple", big: true}
+object["color"] = "blue"; // {name: "Mark", age: 93, mood: "excited", color: "blue", big: true}
+//accessing object key value
+console.log(object.age); // 93
+console.log(object["name"]); // "Mark"
+    /*bracket notation can be used to access key value without quotation marks if the key name 
+    is being references by a variable, such as in a function */
+//removing from object
+delete object.age; 
+console.log(object); //{name: "Mark", mood: "excited", color: "blue", big: true}
+delete object["big"]; 
+console.log(object); // {name: "Mark", mood: "excited", color: "blue"}
+
+
 
 //complex data types are copied by reference when assigning or passing
-    //this means the values they hold can be changed
+    /*this means the values they hold can be changed because the variable 
+    references the entire original data type */
 //changing first index of array to 5
 array[0] = 5;
-//printing the array shows that the original array was modified 
-console.log(array); // [5, "hello", true, [3, 5], {name: "Bob"}]
+console.log(array); // [5, "hello", true, [3, 5], {name: "Bob"}, "light"]
 //adding a property to object
 object.city = "New Orleans";
-//printing the object shows that the original object was modified
-console.log(object); // {name: "Mark", age: 93, mood: "excited", city: "New Orleans"}
+console.log(object); // {name: "Mark", mood: "excited", color: "blue" city: "New Orleans"}
+
+//array2 is referencing the entire original array
+    //it is not referencing a copy of array
+    //so when array2 values are changes, so are array values 
+let array2 = array; 
+console.log(array2); // [5, "hello", true, [3, 5], {name: "Bob"}, "light"]
+//removing last value of array2
+array2.pop(); 
+//last value of array is also removed, since it array2 references the same array
+console.log(array); // [5, "hello", true, [3, 5], {name: "Bob"}]
+
