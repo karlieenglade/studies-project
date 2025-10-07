@@ -3,13 +3,15 @@
  * 
  * 0: Different types of values are stored into different types of data. Data is categorized by its type. There are
  *    two main datatypes: simple/primitive and complex. 
+ * 
  * 1. Simple/primitive data types are: numbers, strings, Booleans, NaN (number), undefined, and null. These data types
  *    are immutable, or unchanging, and do not collect other values.
  * 
  * 2. Complex data types are: arrays, objects, and functions. These data types collect other values.
  *    
  * 3: When passed into a function, simple and complex data types are copied differently. Simple data types are copied 
- *    by value, but complex data types are copied by reference.
+ *    by value, but complex data types are copied by reference. Copy by value means that the original value remains 
+ *    unchanged when acted upon. Copy by reference means that the original value is changed when acted on. 
  * 
  */
 
@@ -39,6 +41,7 @@ b = 50;
 console.log(b); // 50
 console.log(a); // 20
 
+//string are textual data wrapped in single or double quotes
 //strings have a length property 
 let color = "green";
 console.log(color.length); // 5
@@ -65,9 +68,27 @@ console.log(chair); // undefined
 ///null means "nothing" but its data type is an object
 console.log(typeof null); // "object"
 
+//Infinity and -Infinity
+//a positive number multiplied by Infinity equals Infinity
+console.log(2 * Infinity); // Infinity
+//a negative number multiplied by Infinity equals -Infinity
+console.log(-3 * Infinity); // -Infinity
+//a negative number multiplied by -Infinity equals Infinity 
+console.log(-6 * -Infinity); // Infinity
+//a number divided by Infinity equals 0
+console.log(10 / Infinity); // 0
+//a number greater than 0 divided by 0 equals Infinity
+console.log(1 / 0); // Infinity
+//a negative number divided by Infinity equals -Infinity
+console.log(-5 / Infinity); // -Infinity
 
+//NaN means not a number and is returned when non-numeric values are treated as numbers
+console.log("fish" * 3); // NaN
+console.log("hi" - "hello"); // NaN
+//0/0 is NaN
+console.log(0/0); // NaN
 
-// complex data types
+// complex data types 
     // collect other values
 //arrays: ordered lists, can hold any data types
 let array = [1, "hello", true, [3, 5], {name: "Bob"}];

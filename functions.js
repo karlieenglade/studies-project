@@ -15,7 +15,8 @@
  * 2: Parameters: once a function is defined, it is invoked by calling the function. Arguments take
  *    the place of its parameters, and we do not include the keyword function in the invokation.
  *    Because functions are reusable, we can use different arguments (input) on a function to return 
- *    different output. 
+ *    different output. A function can optionally have inputs and optionally return a value; this is
+ *    dependent upon if there are parameters and/or a return statement in the function.
  * 
  * 3: Function expression: functions can be assigned to variables, which can then be invoked. When 
  *    using a function expression, the function does not need a name.
@@ -33,11 +34,15 @@
  */
 
 // function declaration
-//function keyword, function name "funky", 2 parameters
+//syntax: function keyword, function name "funky", 2 parameters
+    //we know that this function has 2 inputs: parameter1 and parameter2
+        //if no parameters were given, then we know this function does not need input
 function funky(parameter1, parameter2){
     //function body
     //functions can do many things
     //this function adds the 2 parameters together and returns this
+        //this function has a return statement, indicating that it creates an output
+        //without a return statement in the function body, there would be no output
     return parameter1 + parameter2;
 }
 
@@ -49,7 +54,7 @@ console.log(funky(2,3)); // 5
 funky("hi ", "world");
 console.log(funky("hi ", "world")); //"hi world"
 
-//function expression
+//function expression - assigning function to a variable
 //assigning funky function to a variable
 let myFunction = funky;
 //can call funky using the variable with arguments
